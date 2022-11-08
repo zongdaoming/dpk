@@ -1,0 +1,6 @@
+DATA:
+  DATASET: imagenet
+  IMG_SIZE: 224
+  DATA_PATH: data/images/
+
+  

@@ -1,0 +1,61 @@
+#######################################################  Training Settings ##############################################################################################################
+model1: resnet101_18_1
+model2: resnet101_18_1_2
+model3: None
+cfg: configs/resnet_kd.yaml # type=str, required=True, metavar="FILE", help='path to config file'
+opts: #"Modify config options by adding 'KEY VALUE' pairs. "
+# training configurations
+img_size: 224
+batch_size: 256
+data_path: data/images/
+zip: True
+cache_mode: no
+###################################################################################################################################################################################
+##################################################################################################################################################################################
+accumulation_steps: 2
+use_checkpoint: False
+amp_opt_level: 'O0' # type=str, default='O1', choices=['O0', 'O1', 'O2'], help='mixed precision opt level, if O0, no amp is used'
+output:
+tag:
+eval:
+throughput:
+
+teacher_type: pyresnet101
+student_type: pyresnet18
+teacher_resume: teacherresnet101-63fe2227.pth
+student_resume: teacher/resnet18-f37072fd.pth 
+masked_autoencoder_resume: None
+masked_autoencoder_resume_1: None
+masked_autoencoder_resume_2: None
+masked_autoencoder_resume_3: None
+
+channel_s: None
+channel_mask: False
+
+# Distillation Parameters
+kd_type: feat # choices=['features', 'attn', 'patch-embedding', 'logits', 'block-features', 'cross-attn', 'attn-before-softmax', 'mae-features', 'partial-mae-features', 'attn-recitify']
+kd_align: L2 # choices=['similarity', 'regressor', 'L2', 'KL', 'gang']
+kd_T: 1.0 #  help='temperature for KD distillation'
+gamma: 0.8 # 'weight for classification'
+alpha: 0.8 # 'weight balance for KD'
+beta: 0.2 # 'weight balance for other losses'
+
+feat_index: -1 # help='feature index for calculating KD loss'
+mask_ratio: 0.15
+# input_size: 224
+masked_auto_encoder_type: cka # masked autoencoder type
+
+continue_train: True # help='Continue training student model'
+earlystop: False # help='only distill for the first 100 epochs'
+normlize_target: False
+# Distributed training parameters.
+port: 9886
+device: cuda
+seed: 2022
+eval: False
+start_epoch: 0
+num_workers: 8
+rank: 0
+local_rank:
+dist_url: 'env://'
+cache_mode: False
