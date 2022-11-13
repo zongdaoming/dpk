@@ -2,12 +2,502 @@
 This is a temporary, anonymous repository for additional explanations of the questions/comments raised by ICLR 2023 reviewers.
 
 
-## 1. Capacity-Performance Gap Issue
+## 1. Visulization of feature maps, Grad-CAM, and Guided Grad-CAM for teachers, students, and distilled students
+
+### Results of a heterogeneous teacher-student distillation pair (ResNet101(T)-MobileNetV1(S)) on ImageNet.
+
+<center>
+	<img src="assets/cat1/cat1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat1/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat1/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (MobileNet)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat1/cat1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat1/student_ickd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat1/student_ickd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of ICKD-Distilled Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of ICKD-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat1/cat1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat1/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat1/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of DPK-Distilled Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat1/cat1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat1/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat1/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Teacher (ResNet101)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet101)</font>
+</center>
+<br/>
+
+<!--######################################################################################################################################################-->
+
+<center>
+	<img src="assets/cat2/cat2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat2/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat2/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat2/cat2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat2/student_ickd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat2/student_ickd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of ICKD-Distilled Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of ICKD-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat2/cat2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat2/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat2/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of DPK-Distilled Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/cat2/cat2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/cat2/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/cat2/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Teacher (ResNet101)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet101)</font>
+</center>
+<br/>
+
+
+<!--######################################################################################################################################################-->
+
+### Results of a homogeneous teacher-student distillation pair (ResNet101(T)-ResNet50(S)) on ImageNet.
+
+<center>
+	<img src="assets/dog1/dog2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog1/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog1/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog1/dog2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog1/student_ickd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog1/student_ickd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of ICKD-Distilled Student (MobileNet)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of ICKD-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog1/dog2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog1/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog1/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of DPK-Distilled Student (MobileNet)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog1/dog2.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog1/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog1/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Teacher (ResNet101)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet101)</font>
+</center>
+<br/>
+
+<!--######################################################################################################################################################-->
+
+<center>
+	<img src="assets/dog2/dog3.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog2/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog2/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (MobileNet)</font>
+    &emsp;
+    <font color="AAAAAA">Heatmaps of Student (MobileNet)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog2/dog3.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog2/student_ickd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog2/student_ickd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;
+    <font color="AAAAAA">Feature map of ICKD-Distilled Student (ResNet50)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of ICKD-Distilled Student (ResNet50)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog2/dog3.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog2/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog2/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;
+    <font color="AAAAAA">Feature map of DPK-Distilled Student (ResNet50)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (ResNet50)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/dog2/dog3.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/dog2/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/dog2/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Teacher (ResNet101)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet101)</font>
+</center>
+<br/>
+
+
+<!--######################################################################################################################################################-->
+
+### ResNet152-FPN is used as the teacher and ResNet50-FPN is used as the student. We demonstrate some additional visualisations and figures for object detection distillation on MS-COCO.
+
+<center>
+	<img src="assets/mountain/mountain.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/mountain/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/mountain/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;
+    <font color="AAAAAA">Heatmaps of Student (ResNet50-FPN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/mountain/mountain.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/mountain/student_fgd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/mountain/student_fgd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of FGD-Distilled Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of FGD-Distilled Student (ResNet50-PFN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/mountain/mountain.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/mountain/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/mountain/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of DPK-Distilled Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (ResNet50-FPN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/mountain/mountain.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/mountain/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/mountain/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of Teacher (ResNet152-FPN)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet152-FPN)</font>
+</center>
+<br/>
+
+
+<!--######################################################################################################################################################-->
+
+<center>
+	<img src="assets/caffee/caffee1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/caffee/vanilla_student.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/caffee/vanilla_student_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature map of Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;
+    <font color="AAAAAA">Heatmaps of Student (ResNet50-FPN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/caffee/caffee1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/caffee/student_fgd.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/caffee/student_fgd_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of FGD-Distilled Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of FGD-Distilled Student (ResNet50-PFN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/caffee/caffee1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/caffee/student_dpk.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/caffee/student_dpk_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of DPK-Distilled Student (ResNet50-FPN)</font>
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of DPK-Distilled Student (ResNet50-FPN)</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/caffee/caffee1.jpeg" width="25%" />
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<img src="assets/caffee/vanilla_teacher.png" width="25%" />
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <img src="assets/caffee/vanilla_teacher_cam.png" width="25%" />
+	<br/>
+	<font color="AAAAAA">Original input image</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Feature Map of Teacher (ResNet152-FPN)</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;
+    <font color="AAAAAA">Heatmaps of Teacher (ResNet152-FPN)</font>
+</center>
+<br/>
+
+
+<!-- <img src="assets/cat1/cat1.jpeg" alt="original image" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/vanilla_student.png" alt="original image" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/vanilla_student_cam.png" alt="original image" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/student_ickd.png" alt="student distilled by ICKD" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/student_ickd_cam.png" alt="student distilled by ICKD" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/student_dpk.png" alt="student distilled by ICKD" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/student_dpk_cam.png" alt="student distilled by ICKD" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/vanilla_teacher.png" alt="original image" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+
+<img src="assets/cat1/vanilla_teacher_cam.png" alt="original image" width="20%" style="display: block; margin-left: auto; margin-right: auto;">
+ -->
+
+
+## 2.Dynamic masking ratios of different stages in the training phase. 
+We visualize the dynamic mask ratios at different stages on ImageNet. The mask ratios are adjusted in batch-level, and are averaged in epoch-level for better presentation.
+
+
+<center>
+	<img src="assets/50_18_stage_2.png" alt="dynamic mask ratios" width="25%" />
+	&emsp;
+	<img src="assets/50_18_stage_3.png" alt="dynamic mask ratios" width="25%" />
+    &emsp;
+    <img src="assets/50_18_stage_4.png" alt="dynamic mask ratios" width="25%" />
+	<br/>
+	<font color="AAAAAA">Stage 2</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Stage 3</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Stage 4</font>
+</center>
+<br/>
+
+<center>
+	<img src="assets/152_18_stage_2.png" alt="dynamic mask ratios" width="25%" />
+	&emsp;
+	<img src="assets/152_18_stage_3.png" alt="dynamic mask ratios" width="25%" />
+    &emsp;
+    <img src="assets/152_18_stage_4.png" alt="dynamic mask ratios" width="25%" />
+	<br/>
+	<font color="AAAAAA">Stage 2</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Stage 3</font>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;
+    <font color="AAAAAA">Stage 4</font>
+</center>
+<br/>
+
+
+<!-- <img src="assets/50_18_stage_2.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="assets/50_18_stage_3.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="assets/50_18_stage_4.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+
+
+<img src="assets/152_18_stage_2.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="assets/152_18_stage_3.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="assets/152_18_stage_4.png" alt="dynamic mask ratios" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+ -->
+
+##  Capacity-Performance Gap Issue
 ![alt text](assets/new_intro.png "Larger models can be better Teachers")
-Although, we have witnessed performance gains of DPK on the existing knowledge distillation framework, further analysis of the claim better teacher makes better student is desired. To this end, we train a plain CNN with batch normalization, skip connection and ReLU activation as the student. It is distilled by large teachers of 4, 6, 8, and 10 layers on both CIFAR10 and CIFAR100. As expected, by increasing the student number of layers, the student performance gain is initially increased and then decreased due to the capacity mismatch by conventional KD, as illustrated in the above Figure. On the other hand, with DPK, the student performance gain is positively correlated to the student size. This suggests that our model does make a bigger model a better teacher.
+Although, we have witnessed performance gains of DPK on the existing knowledge distillation framework, further analysis of the claim that larger models do often make better teachers is desired. To this end, we train a plain CNN with batch normalization, skip connection and ReLU activation as the student. It is distilled by large teachers of 4, 6, 8, and 10 layers on both CIFAR10 and CIFAR100. As expected, by increasing the student number of layers, the student performance gain is initially increased and then decreased due to the capacity mismatch by conventional KD, as illustrated in the above Figure. On the other hand, with DPK, the student performance gain is positively correlated to the student size. This suggests that our model does make a bigger model a better teacher.
 
 
-## 2. About Centered Kernel Alignment
+
+## About Centered Kernel Alignment
 Centered Kernel Alignment (CKA) is a representation similarity metric that is widely used for understanding the representations learned by neural networks. Specifically, CKA takes two feature maps / representations ***X*** and ***Y*** as input and computes their normalized similarity (in terms of the Hilbert-Schmidt Independence Criterion (HSIC)) as
 <img src="assets/cka.png" alt="CKA original version" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
 
