@@ -1,6 +1,6 @@
 
 ### Dynamic masking ratios of different stages in the training phase. 
-We visualize the dynamic mask ratios at different stages on ImageNet. The mask ratios are adjusted in batch-level, and are averaged in epoch-level for better presentation.
+We visualize the dynamic mask ratios at different stages on ImageNet. The mask ratios are adjusted in batch-level and averaged in epoch-level for better presentation.
 
 
 <center>
